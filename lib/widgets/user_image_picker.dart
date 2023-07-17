@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UserImagePicker extends StatefulWidget {
-  const UserImagePicker({super.key});
+  const UserImagePicker({super.key, required this.onPickImage});
+  final void Function(File pickedImage) onPickImage;
   @override
   State<StatefulWidget> createState() {
     return _UserImagePickersState();
@@ -26,6 +27,7 @@ class _UserImagePickersState extends State<UserImagePicker> {
     setState(() {
       _pickeImageFile = File(pickedImage.path);
     });
+    widget.onPickImage(_pickeImageFile!);
   }
 
   @override
@@ -33,7 +35,7 @@ class _UserImagePickersState extends State<UserImagePicker> {
     return Column(
       children: [
         CircleAvatar(
-          radius: 40,
+          radius: 50,
           backgroundColor: Colors.grey,
           foregroundImage:
               _pickeImageFile != null ? FileImage(_pickeImageFile!) : null,
@@ -42,8 +44,10 @@ class _UserImagePickersState extends State<UserImagePicker> {
           onPressed: _pickImage,
           icon: const Icon(Icons.image),
           label: Text(
-            'Add image',
-            style: TextStyle(color: Theme.of(context).primaryColor),
+            'Take Profile',
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.bold),
           ),
         )
       ],
