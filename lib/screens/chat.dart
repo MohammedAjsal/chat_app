@@ -9,7 +9,7 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Beyond boundaries..'),
+        title: const Text('Chats..'),
         actions: [
           IconButton(
             onPressed: () {
@@ -24,7 +24,9 @@ class ChatScreen extends StatelessWidget {
       ),
       body: const Column(
         children: [
-          Expanded(child: ChatMessages()),
+          Expanded(
+            child: ChatMessages(),
+          ),
           NewMessage(),
         ],
       ),
