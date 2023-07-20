@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
       //   title: const Text('Beyond boundaries..'),
       // ),
       body: Center(
-        child: Text('Loading...'),
+        child: CircularProgressIndicator(),
       ),
     );
   }

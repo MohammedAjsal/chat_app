@@ -30,15 +30,19 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chats..'),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: Text(
+          'Chat',
+          style: TextStyle(color: Theme.of(context).colorScheme.background),
+        ),
         actions: [
           IconButton(
             onPressed: () {
               FirebaseAuth.instance.signOut();
             },
             icon: Icon(
-              Icons.exit_to_app,
-              color: Theme.of(context).colorScheme.primary,
+              Icons.logout,
+              color: Theme.of(context).colorScheme.background,
             ),
           ),
         ],

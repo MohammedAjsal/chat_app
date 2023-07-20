@@ -54,10 +54,21 @@ class _NewMessageState extends State<NewMessage> {
               textCapitalization: TextCapitalization.sentences,
               autocorrect: true,
               enableSuggestions: true,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: "Send message...",
                 border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(19),
+                  ),
+                  borderSide:
+                      BorderSide(color: Theme.of(context).colorScheme.primary),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: Theme.of(context).colorScheme.primary),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(19),
+                  ),
                 ),
               ),
             ),
